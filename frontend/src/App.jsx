@@ -5,7 +5,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Welcome to the Todo app</h1>
       <Todo />
     </div>
   )
