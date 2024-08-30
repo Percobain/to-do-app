@@ -2,7 +2,8 @@ import React from "react";
 import axios from "../../axios";
 import { ListContainer, Row, Text, DeleteIcon } from "./styles";
 
-function TodoList({ todos, fetchData }) {
+export default function TodoList({ todos, fetchData }) {
+
   const updateTodo = async (id) => {
     try {
       const response = await axios.put(`/todos/${id}`, {
@@ -10,8 +11,8 @@ function TodoList({ todos, fetchData }) {
       });
       fetchData();
       return response.data.json;
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
@@ -22,33 +23,21 @@ function TodoList({ todos, fetchData }) {
       });
       fetchData();
       return response.data.json;
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.log(error.message);
     }
-  };
+  }
 
   return (
     <div>
       <ListContainer>
-        {Array.isArray(todos) && todos?.map((todo) => (
+        {todos?.map((todo) => (
           <Row key={todo._id}>
-            <Text
-              onClick={() => updateTodo(todo._id)}
-              isCompleted={todo.completed}
-            >
-              {todo.text}
-            </Text>
-            <DeleteIcon
-              data-testid="close"
-              onClick={() => deleteTodo(todo._id)}
-            >
-              X
-            </DeleteIcon>
+            <Text onClick={() => updateTodo(todo._id)} isCompleted={todo.completed}>{todo.text}</Text>
+            <DeleteIcon data-testid="close" onClick={() => deleteTodo(todo._id)}>X</DeleteIcon>
           </Row>
         ))}
       </ListContainer>
     </div>
-  );
+  )
 }
-
-export default TodoList;

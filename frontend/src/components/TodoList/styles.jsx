@@ -19,7 +19,7 @@ export const Text = styled.span`
         text-transform: capitalize;
     }
     color: ${(props) => (props.isCompleted ? "red": null)};
-    text-decoration: ${(props) => (props.isCompleted ? "line-through": none)};
+    text-decoration: ${(props) => (props.isCompleted ? "line-through": null)};
 `;
 
 export const DeleteIcon = styled(Text)`
