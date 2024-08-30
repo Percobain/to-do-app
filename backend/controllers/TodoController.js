@@ -20,7 +20,6 @@ const createTodo = async (req, res) => {
     }
 }
 
-
 const updateTodo = async (req, res) => {
     const { id } = req.params;
     try {
