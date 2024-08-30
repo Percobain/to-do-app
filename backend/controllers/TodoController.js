@@ -45,7 +45,7 @@ const deleteTodo = async (req, res) => {
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(404).send(`No todo with that id ${id}`);
         }
-        const deleteTodos = await Todos.findOneAnddelete({ _id: id });
+        const deleteTodos = await Todos.findOneAndDelete({ _id: id });
         res.status(200).send(deleteTodos);
     } catch (error) {
         res.status(500).send(error.message);
