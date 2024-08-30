@@ -1,10 +1,16 @@
 import React from 'react'
+import { Container } from './styles'
+import Form from '../Form/Form';
 
 function Todo() {
   return (
-    <div>
-        <h1>Hello this is the Todo Component</h1>
-    </div>
+    <Container>
+      <h2>List of Todos</h2>
+      <Form />
+      {/* Todo List
+      Key Component
+      Author Component */}
+    </Container>
   )
 }
 
