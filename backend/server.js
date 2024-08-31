@@ -6,7 +6,7 @@ const { db } = require('./db/db');
 
 dotenv.config();
 
-const { getTodos, createTodo, updateTodo, deleteTodo } = require('./controllers/TodoController');
+const { getTodos, createTodo, updateTodo, editTodo, deleteTodo } = require('./controllers/TodoController');
 
 const app = express();
 
@@ -27,4 +27,5 @@ app.listen(PORT, () => {
 app.get('/todos', getTodos);
 app.post('/todos', createTodo);
 app.put('/todos/:id', updateTodo);
+app.patch('/todos/:id', editTodo);
 app.delete('/todos/:id', deleteTodo);
