@@ -10,9 +10,12 @@ const { getTodos, createTodo, updateTodo, editTodo, deleteTodo } = require('./co
 
 const app = express();
 
-
+const reactAppBaseUrl = process.env.REACT_APP_BASE_URL;
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: reactAppBaseUrl ? [reactAppBaseUrl]:true,
+}));
 
 
 PORT = process.env.PORT || 5000;

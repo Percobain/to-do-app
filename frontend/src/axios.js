@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://to-do-app-server-tawny.vercel.app/',
 });
 
 export default instance;
