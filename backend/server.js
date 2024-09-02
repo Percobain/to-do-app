@@ -14,17 +14,19 @@ const reactAppBaseUrl = process.env.REACT_APP_BASE_URL;
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin: reactAppBaseUrl ? [reactAppBaseUrl]:true,
+    origin: reactAppBaseUrl ? [reactAppBaseUrl] : true,
 }));
 
+app.get('/', (req, res) => {
+    res.send('Welcome to the To-Do App Server');
+});
 
-PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     db();
     console.log(`Server is running on port ${PORT}`);
-}) 
-
+});
 
 // API Endpoints
 app.get('/todos', getTodos);
