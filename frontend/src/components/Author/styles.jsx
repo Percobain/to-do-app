@@ -5,5 +5,6 @@ export const AuthorContainer = styled.span`
 
   a {
     cursor: pointer;
+    color: #ef7360;
   }
 `;
